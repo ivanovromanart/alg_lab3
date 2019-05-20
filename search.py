@@ -8,13 +8,14 @@ def linear_search(data, value):
 
 
 def binary_search(data, value):
-    lo, hi = 0, len(data) - 1
-    while lo <= hi:
-        mid = (lo + hi) // 2
-        if data[mid] < value:
-            lo = mid + 1
-        elif value < data[mid]:
-            hi = mid - 1
-        else:
+    low = 0
+    high = len(data) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        guess = data[mid]
+        if guess == value:
             return mid
-    return None
+        elif guess < value:
+            low = mid + 1
+        else:
+            high = mid - 1
